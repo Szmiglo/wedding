@@ -40,6 +40,8 @@
 
     var isAnimated = false;
 
+    $('.paroller').paroller();
+
 
 })(jQuery);
 
@@ -48,7 +50,7 @@
 function countdownTime() {
 
     if (isExists('#clock')) {
-        $('#clock').countdown('2019/06/15', function(event) {
+        $('#clock').countdown('2019/06/15 14:00', function(event) {
             var $this = $(this).html(event.strftime('' +
                 '<div class="time-sec"><span class="title">%D</span> dni </div>' +
                 '<div class="time-sec"><span class="title">%H</span> godzin </div>' +
