@@ -45,7 +45,16 @@
 
 })(jQuery);
 
-
+function sendConfirmation() {
+    var name = $('.name-input').val()
+    var mail = $('.email-input').val()
+    var guests = $('.guests-select').val()
+    $.get("http://37.28.155.145:9999/?action=confirm&name=" + name + "&mail=" + mail + "&guests=" + guests, function(data) {
+        alert("dziękujemy za potwierdzenie!")
+    }).fail(function() {
+        alert("Wypełnij wszystkie pola!")
+    });
+}
 
 function countdownTime() {
 
