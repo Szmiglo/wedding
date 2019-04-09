@@ -26,6 +26,18 @@
 
     <link href="01-homepage/css/responsive.css" rel="stylesheet">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4500144-18"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-4500144-18');
+    </script>
 
 </head>
 
@@ -38,7 +50,7 @@
 
             <ul class="main-menu visible-on-click" id="main-menu">
                 <li><a href="spiewnik.html">ŚPIEWNIK</a></li>
-                <li><a href="#dojazd">MAPA DOJAZDU</a></li>
+                <li><a href="https://goo.gl/maps/YoNuEYtLWJQ2" target="_blank">MAPA DOJAZDU</a></li>
                 <li><a href="prezenty.html">PREZENTY</a></li>
                 <li><a href="potwierdz.html">POTWIERDŹ PRZYBYCIE</a></li>
             </ul>
@@ -81,7 +93,7 @@
                     <div class="wedding-details margin-bottom">
 
                         <div class="w-detail right">
-                            <img src="images/cerkwa.png" class="logo-full"></img>
+                            <img src="images/cerkwa.png" class="cerkwa"></img>
                             <h4 class="title">Ślub</h4>
                             <b>14:00</b>
                             <p>Cerkiew Grekokatolicka pw. Świętego Jerzego</p>
@@ -94,7 +106,7 @@
                             <h4 class="title">Wesele</h4>
                             <p>Wichrowe Wzgórze</p>
                             <p>Adres: <b>Wichrowe Wzgórze 13, 83-333 Chmielno</b></p>
-                            <a href="https://goo.gl/maps/YoNuEYtLWJQ2" target="_blank">Wzkazówki dojazdu</a>
+                            <a href="https://goo.gl/maps/YoNuEYtLWJQ2" target="_blank" class="dojazd">Wzkazówki dojazdu</a>
                         </div>
                         <!-- w-detail -->
 
@@ -117,13 +129,13 @@
                 <div class="col-sm-12">
 
                     <div class="heading">
-                        <h2 class="title">Dodaj do swojego kalendarza</h2>
+                        <h2 class="title">Drodzy goście!</h2>
                         <span class="heading-bottom"><i class="color-white icon icon-star"></i></span>
                     </div>
 
                     <div class="ceremony margin-bottom">
-                        <p class="desc">Kliknij, by dodać do kalendarza Google</p>
-                        <a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&tmeid=N3B1NHYxYnRtaDJmOTl0NjZmMTA2NmpoOWcgM3F1MDRmbHJsY3ZpdDZtaDI5ZzhzcGZ2OThAZw&tmsrc=3qu04flrlcvit6mh29g8spfv98%40group.calendar.google.com"><img src="https://www.google.com/calendar/images/ext/gc_button1_pl.gif"></a>
+                        <p class="desc">Zapraszamy was na główne święto naszego życia! Będzie nam bardzo miło, gdybyście byli świadkami tego wydarzenia i dzielili z nami radość tego dnia. Prosimy o potwierdzenie przybycia do <b>30 kwietnia</b></p>
+
                     </div>
 
                 </div>
@@ -253,7 +265,7 @@
             <div id="map" style="height:100%;"></div>
         </div>
         <!-- map-area -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCw6BDgpvkDlwEeUlehGpqj1RtHrmeolj4&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCw6BDgpvkDlwEeUlehGpqj1RtHrmeolj4&callback=initMap"></script>
 
     </section>
     <!-- section -->

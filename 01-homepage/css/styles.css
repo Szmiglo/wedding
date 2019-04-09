@@ -873,3 +873,17 @@
     .logo-full {
         width: unset;
     }
+    
+    .cerkwa {
+        width: unset;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .logo-full {
+            width: 100%;
+        }
+    }
+    
+    .dojazd {
+        color: #E45F74;
+    }
