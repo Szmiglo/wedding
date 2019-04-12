@@ -237,3 +237,33 @@ function initMap() {
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
 }
+
+function getBooks() {
+    $('#ksiazki tr').not(':first').remove();
+    $.get("http://37.28.155.145:9999/?action=books", function(data) {
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+            var rezerwacja = data[i].zarezerwowane == true ? "Tak" : "Nie";
+            html += '<tr><td>' + data[i].nazwa +
+                '</td><td><a target="_blank" href="' + data[i].link + '">Link do książki</a></td><td>' + rezerwacja +
+                '</td><td>' + '<button onclick="confirmBook(' + i + ')">Zarezerwuj</button>' + '</td>' +
+                '</td></tr>';
+        }
+        $('#ksiazki tr').first().after(html);
+    }).fail(function() {
+        alert("Wypełnij wszystkie pola!")
+    });
+}
+
+function confirmBook(id) {
+    var mail = prompt("W celu potwierdzenia rezerwacji wpisz swój email", "");
+    if (mail == null) {
+        return;
+    }
+    $.get("http://37.28.155.145:9999/?action=confirmbook&id=" + id + "&mail=" + mail, function(data) {
+        alert("Dziękujemy za rezerwację :)");
+        getBooks();
+    }).fail(function() {
+        alert("Wystąpił błąd")
+    });
+}

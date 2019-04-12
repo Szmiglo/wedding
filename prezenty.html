@@ -36,7 +36,7 @@
 
 </head>
 
-<body>
+<body onload="getBooks()">
 
     <header>
 
@@ -84,7 +84,15 @@
                         <h2 class="margin-top-btm">Treść wkrótce</h2>
                         <p class="margin-top-btm"></p>
                         <!-- content -->
+                        <table id="ksiazki">
+                            <tr>
+                                <th>Nazwa książki</th>
+                                <th>Link</th>
+                                <th>Zarezerwowana?</th>
+                                <th>Akcja</th>
+                            </tr>
 
+                        </table>
                     </div>
                     <!-- col-sm-12 -->
                 </div>
