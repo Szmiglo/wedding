@@ -244,9 +244,13 @@ function getBooks() {
         var html = '';
         for (var i = 0; i < data.length; i++) {
             var rezerwacja = data[i].zarezerwowane == true ? "Tak" : "Nie";
+            var button = "";
+            if (rezerwacja === "Nie") {
+                button = '<button onclick="confirmBook(' + i + ')">Zarezerwuj</button>';
+            }
             html += '<tr><td>' + data[i].nazwa +
                 '</td><td><a target="_blank" href="' + data[i].link + '">Link do książki</a></td><td>' + rezerwacja +
-                '</td><td>' + '<button onclick="confirmBook(' + i + ')">Zarezerwuj</button>' + '</td>' +
+                '</td><td>' + button + '</td>' +
                 '</td></tr>';
         }
         $('#ksiazki tr').first().after(html);
