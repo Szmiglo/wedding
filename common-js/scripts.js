@@ -45,16 +45,7 @@
 
 })(jQuery);
 
-function sendConfirmation() {
-    var name = $('.name-input').val()
-    var mail = $('.email-input').val()
-    var guests = $('.guests-select').val()
-    $.get("http://37.28.155.145:9999/?action=confirm&name=" + name + "&mail=" + mail + "&guests=" + guests, function(data) {
-        alert("dziękujemy za potwierdzenie!")
-    }).fail(function() {
-        alert("Wypełnij wszystkie pola!")
-    });
-}
+
 
 function countdownTime() {
 
@@ -238,9 +229,20 @@ function initMap() {
     map.setMapTypeId('styled_map');
 }
 
+function sendConfirmation() {
+    var name = $('.name-input').val()
+    var mail = $('.email-input').val()
+    var guests = $('.guests-select').val()
+    $.get("http://37.28.155.145:9998/confirmpresence?name=" + name + "&mail=" + mail + "&guests=" + guests, function(data) {
+        alert("dziękujemy za potwierdzenie!")
+    }).fail(function() {
+        alert("Wypełnij wszystkie pola!")
+    });
+}
+
 function getBooks() {
     $('#ksiazki tr').not(':first').remove();
-    $.get("http://37.28.155.145:9999/?action=books", function(data) {
+    $.get("http://37.28.155.145:9998/books", function(data) {
         var html = '';
         for (var i = 0; i < data.length; i++) {
             var rezerwacja = data[i].zarezerwowane == true ? "Tak" : "Nie";
@@ -264,7 +266,7 @@ function confirmBook(id) {
     if (mail == null) {
         return;
     }
-    $.get("http://37.28.155.145:9999/?action=confirmbook&id=" + id + "&mail=" + mail, function(data) {
+    $.get("http://37.28.155.145:9998/confirmbook?id=" + id + "&mail=" + mail, function(data) {
         alert("Dziękujemy za rezerwację :)");
         getBooks();
     }).fail(function() {
